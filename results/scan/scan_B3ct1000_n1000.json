@@ -1,0 +1,42 @@
+{
+  "protocol": {
+    "n_per_class": 1000,
+    "seed": 0,
+    "batch_size": 500
+  },
+  "variants": [
+    {
+      "name": "ct250_B3",
+      "n_per_class": 1000,
+      "steps": 50,
+      "w_max": 2.5,
+      "w_from": 0,
+      "ramp": false,
+      "mode": "contrast",
+      "w_cat": null,
+      "w_dog": null,
+      "post": "",
+      "failed": false,
+      "accuracy": 0.8414999842643738,
+      "fid": 97.14683365225102,
+      "kid": 0.04375264932120968,
+      "precision": 0.519911527633667,
+      "recall": 0.5121681690216064,
+      "memorization": 0.0,
+      "marks": 11,
+      "tiers": {
+        "accuracy": "Good",
+        "fid": "Marginal",
+        "recall": "Excellent"
+      },
+      "sec_per_1000": 89.1970524999997,
+      "deterministic": true,
+      "single_vs_mixed": [
+        0.8600000143051147,
+        0.8399999737739563
+      ],
+      "violations": [],
+      "wall_s": 250.8
+    }
+  ]
+}

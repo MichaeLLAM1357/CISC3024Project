@@ -1,0 +1,42 @@
+{
+  "protocol": {
+    "n_per_class": 1000,
+    "seed": 0,
+    "batch_size": 500
+  },
+  "variants": [
+    {
+      "name": "contrast200",
+      "n_per_class": 1000,
+      "steps": 50,
+      "w_max": 2.0,
+      "w_from": 0,
+      "ramp": false,
+      "mode": "contrast",
+      "w_cat": null,
+      "w_dog": null,
+      "post": "",
+      "failed": false,
+      "accuracy": 0.8140000104904175,
+      "fid": 96.91946441206,
+      "kid": 0.03865066100486562,
+      "precision": 0.528761088848114,
+      "recall": 0.5409291982650757,
+      "memorization": 0.0,
+      "marks": 11,
+      "tiers": {
+        "accuracy": "Good",
+        "fid": "Marginal",
+        "recall": "Excellent"
+      },
+      "sec_per_1000": 57.979373549998854,
+      "deterministic": true,
+      "single_vs_mixed": [
+        0.8399999737739563,
+        0.7900000214576721
+      ],
+      "violations": [],
+      "wall_s": 167.3
+    }
+  ]
+}

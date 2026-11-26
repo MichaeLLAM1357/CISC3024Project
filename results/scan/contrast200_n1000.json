@@ -1,0 +1,83 @@
+{
+  "submission": "D:\\CISC3024\\PROJECT\\results\\scan\\sub_contrast200",
+  "protocol": {
+    "n_per_class": 1000,
+    "seed": 0,
+    "batch_size": 500,
+    "device": "cuda",
+    "grading": false
+  },
+  "checks": {
+    "deterministic": true,
+    "seed_sensitive": true,
+    "mixed_batch_accuracy": 0.7900000214576721,
+    "single_class_batch_accuracy": 0.8399999737739563
+  },
+  "training_data": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "rows": 2000,
+      "valid_rows": 2000,
+      "cat": 1000,
+      "dog": 1000,
+      "distinct_pool_images": 2000,
+      "rotated": 0
+    }
+  },
+  "metrics": {
+    "num_samples": 2000,
+    "reference": "data\\dev\\dev.npz",
+    "accuracy": 0.8140000104904175,
+    "per_class_accuracy": {
+      "cat": 0.7390000224113464,
+      "dog": 0.8889999985694885
+    },
+    "fid": 96.91946441206,
+    "kid": 0.03865066100486562,
+    "kid_std": 0.001604307176489842,
+    "precision": 0.528761088848114,
+    "recall": 0.5409291982650757,
+    "memorization_rate": 0.0,
+    "nn_distance_median": 11.265364646911621,
+    "nn_ratio_median": 0.9791110157966614,
+    "training_images_deduplicated": 3992
+  },
+  "resources": {
+    "num_parameters": 5572547,
+    "submission_mb": 21.349374771118164,
+    "seconds_per_1000": 57.979373549998854
+  },
+  "limits": {
+    "max_parameters": 20000000,
+    "max_submission_mb": 100.0,
+    "max_memorization_rate": 0.05
+  },
+  "violations": [],
+  "warnings": [],
+  "marks": {
+    "per_metric": {
+      "accuracy": {
+        "tier": "Good",
+        "marks": 4
+      },
+      "fid": {
+        "tier": "Marginal",
+        "marks": 2
+      },
+      "recall": {
+        "tier": "Excellent",
+        "marks": 5
+      }
+    },
+    "total": 11,
+    "max": 15,
+    "valid": true
+  },
+  "environment": {
+    "torch": "2.6.0+cu124",
+    "python": "3.12.10",
+    "classifier_sha256": "9f66f425bed44b5e515045e5df002e61ca7f68eccfc3204a88ff234eae576afa",
+    "reference_sha256": "3f592dcb3738a00eff9623ec3b4581007b2e8289f5bae1b64e19ef0dd75c7402"
+  }
+}

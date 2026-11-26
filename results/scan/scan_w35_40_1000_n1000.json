@@ -1,0 +1,75 @@
+{
+  "protocol": {
+    "n_per_class": 1000,
+    "seed": 0,
+    "batch_size": 500
+  },
+  "variants": [
+    {
+      "name": "contrast350",
+      "n_per_class": 1000,
+      "steps": 50,
+      "w_max": 3.5,
+      "w_from": 0,
+      "ramp": false,
+      "mode": "contrast",
+      "w_cat": null,
+      "w_dog": null,
+      "post": "",
+      "failed": false,
+      "accuracy": 0.8634999990463257,
+      "fid": 91.95468477001066,
+      "kid": 0.033420073997209344,
+      "precision": 0.5143805146217346,
+      "recall": 0.4646017551422119,
+      "memorization": 0.0,
+      "marks": 11,
+      "tiers": {
+        "accuracy": "Good",
+        "fid": "Marginal",
+        "recall": "Excellent"
+      },
+      "sec_per_1000": 47.551497200000085,
+      "deterministic": true,
+      "single_vs_mixed": [
+        0.9200000166893005,
+        0.8500000238418579
+      ],
+      "violations": [],
+      "wall_s": 147.2
+    },
+    {
+      "name": "contrast400",
+      "n_per_class": 1000,
+      "steps": 50,
+      "w_max": 4.0,
+      "w_from": 0,
+      "ramp": false,
+      "mode": "contrast",
+      "w_cat": null,
+      "w_dog": null,
+      "post": "",
+      "failed": false,
+      "accuracy": 0.8820000290870667,
+      "fid": 97.01595636583625,
+      "kid": 0.03956865878015708,
+      "precision": 0.519911527633667,
+      "recall": 0.4612831771373749,
+      "memorization": 0.0,
+      "marks": 11,
+      "tiers": {
+        "accuracy": "Good",
+        "fid": "Marginal",
+        "recall": "Excellent"
+      },
+      "sec_per_1000": 38.484836649999124,
+      "deterministic": true,
+      "single_vs_mixed": [
+        0.8700000047683716,
+        0.8600000143051147
+      ],
+      "violations": [],
+      "wall_s": 112.7
+    }
+  ]
+}

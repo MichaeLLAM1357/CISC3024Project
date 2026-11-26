@@ -1,0 +1,46 @@
+{
+  "protocol": {
+    "n_per_class": 1000,
+    "seed": 0,
+    "batch_size": 500,
+    "checkpoint": "PROJECT2\\results\\experiments\\B_ddpm5\\weights_ema0.995.pt",
+    "ckpt_label": "E2e0995"
+  },
+  "variants": [
+    {
+      "name": "contrast200",
+      "ckpt": "E2e0995",
+      "n_per_class": 1000,
+      "steps": 50,
+      "w_max": 2.0,
+      "w_from": 0,
+      "ramp": false,
+      "mode": "contrast",
+      "w_cat": null,
+      "w_dog": null,
+      "post": "",
+      "failed": false,
+      "json": "D:/CISC3024/PROJECT/results/scan/E2/contrast200__E2e0995_n1000.json",
+      "accuracy": 0.7699999809265137,
+      "fid": 106.08365101412835,
+      "kid": 0.05051489883174464,
+      "precision": 0.49446901679039,
+      "recall": 0.41703540086746216,
+      "memorization": 0.0,
+      "marks": 9,
+      "tiers": {
+        "accuracy": "Pass",
+        "fid": "Poor",
+        "recall": "Excellent"
+      },
+      "sec_per_1000": 219.4428926000037,
+      "deterministic": true,
+      "single_vs_mixed": [
+        0.7599999904632568,
+        0.7900000214576721
+      ],
+      "violations": [],
+      "wall_s": 546.5
+    }
+  ]
+}

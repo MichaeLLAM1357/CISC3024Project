@@ -59,7 +59,8 @@ tests/                      11 tests: crop parity with the starter kit, determin
 starter_kit/                course evaluator and audit tool, unmodified, used for every number
 results/                    evaluator JSON per arm, label statistics, review sheets;
                             results/README.md says which JSON is the submission (13/15)
-PDF/REPORT.pdf              the six-page report
+PDF/REPORT.pdf              the report: a cover page, six pages of body, references and two appendices;
+                            the cover carries the link to this repository
 DATA_CARD.md                one page: pipeline counts, compliance with its interval, error kinds
 LIMITS.md, AGENTS.md,        the rules the agent worked under (every "LIMITS.md §n" in the code
 AGENT_LOG.md                points here), and the two defects that created the rules
@@ -105,7 +106,9 @@ python -m pytest -q starter_kit/tests
 
 Checked on 2026-11-26: command 1 at 24 per class returns `deterministic=True  seed_sensitive=True
 single/mixed batch 0.96/0.87` and `manifest 3000/3000 valid rows`; commands 2 and 4 run from this
-copy as written; 11 and 26 tests pass.
+copy as written; 11 and 26 tests pass. Three of the eleven rebuild crops from the pool: with `data/`
+unpacked (or `CATDOG_DATA` set) all 11 pass, and without it those three stop on
+`data/student/index.csv not found` while the other eight pass.
 
 Training the delivered checkpoint, and the arms that did not ship:
 

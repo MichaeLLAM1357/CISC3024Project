@@ -28,3 +28,6 @@ and is not in this repo. Match on the numbers, not on the filename.
 - `review/admission_*.csv` — the 25 admission sheets, one `human_ok` verdict per row.
 - `manifest_v1/` — the 1,000-row admitted manifest and its stats, before the mixed arm existed.
 - `draft_pre_review.csv` — the frozen 2,000-row draft the admission queue was drawn from.
+- `scan/*_n1000.json` — the sampler scan: 16 unmodified `evaluate.py` outputs and 8
+  `scan_posttrain.py` run summaries, all at 1,000 per class on the 2,000-row tree.
+  `scan/README.md` says which schema each file has.

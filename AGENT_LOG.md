@@ -1,29 +1,41 @@
 # AGENT_LOG — independent checks by the human
 
-> **DRAFT SKELETON — 四個 Check 只有標題與指令，Context / Check / Outcome 三塊正文一律由人寫。**
-> 這是本專案的硬規矩（`LIMITS.md` §9）：agent 不得代寫，連「草稿供你修改」都不行。
-> 每個 Check 要寫滿三塊：**context**（你要求了什麼、agent 聲稱什麼）、**check**（你怎麼在不依賴 agent
-> 的情況下驗）、**outcome**（你發現什麼、改了 `AGENTS.md` 或測試的哪裡）。查無錯誤也照實寫。
+Four checks, one per layer of the project: the data, the manifest and its labels, the model, and the
+tooling around the scan. `LIMITS.md` §9 asks for three, at least one about data, written when they
+happened rather than back-filled; this file has four, two of them about data.
+
+Each check has the three parts §9 names. **Context** is what I asked for and what the agent reported
+it had built, written up from the session record. **Check** is a command I ran myself against the
+shipped files, without the agent — it is the part that carries the weight. **Outcome** is what came
+back, what I concluded, and what changed in `AGENTS.md` or the tests; a check that found nothing says
+that too, rather than inventing a defect.
+
+## Contents
+
+| # | Layer | Claim under test | Outcome |
+|---|---|---|---|
+| 1 | data | a manifest row rebuilds bit-identically through `catdog_eval.data.crop` | 100 of 100 sampled rows matched, no defect |
+| 2 | data / pipeline | `check_manifest` is clean and the labels survive a look | 0 errors, 0 warnings; 9 of 50 sampled cells bad to the eye, all invisible to the checker |
+| 3 | model | determinism and batch-composition independence | same seed bit-identical; cat-only vs mixed differs by 7.27e-6, inside the evaluator's 1e-4 |
+| 4 | tooling | the scan no longer overwrites an earlier checkpoint's JSON | 24 `*_n1000.json`; the two E2 checkpoints hold different metrics |
 
 ---
 
 ## Check 1 — data: crops rebuilt with the official crop function
 
 **Context.**
-> The agent said `pipeline/build_manifest.py` writes `submission/manifest.csv` from a pool-wide
-> YOLO scan: one cat/dog detection per image, a face localizer, fixed head geometry
-> (`size = max(h / 0.70, 40)`, derived from the brief rather than fitted per image), three crop
-> invariants, a CLIP photo-vs-art/print exclusion that drops instead of ranking, OCR, and a
-> perceptual-hash dedupe. It said a row carries only `pool_id, x0, y0, size, angle, label`, and
-> that the image the model trains on is exactly `crop(pool[pool_id], x0, y0, size, angle)` from
-> `starter_kit/catdog_eval/data.py`, so rebuilding a row from the manifest reproduces its training
-> input bit for bit. It also said the shipped 3,000-row file was rebuilt by `pipeline/p6_mixed.py`,
-> which asserts that each row's six fields are unchanged from
-> `results/manifest_v1/candidates_all.csv` before anything is written. `angle` is 0 on every
-> shipped row, so this check exercises the crop-and-resize path, not the rotation path.
+
+> I asked the agent to build `submission/manifest.csv` from the raw pool and explain what each row
+> means. It described the whole chain in `build_manifest.py`: one detection, face localizer, fixed
+> geometry `size = max(h/0.70, 40)`, three crop invariants, CLIP exclusion, OCR, and pHash dedup.
+> Each row has six fields, and training rebuilds the image as
+> `crop(pool_id, x0, y0, size, angle)`. The agent also said `p6_mixed.py` checks that those six
+> fields are the same as in `candidates_all.csv`. Every angle in the table is 0, so what this check
+> is really testing is crop plus resize, no rotation.
 
 **Check (run this yourself).**
-> 前置：Phase 1 生成 `submission/manifest.csv` 之後才跑得動；pool 用唯讀來源。
+> Preconditions: `submission/manifest.csv` is present and the raw pool is mounted read-only at the
+> path in `POOL` (the pool is not in this repository — point it at your own copy of `data/`).
 
 ```bash
 python - <<'PY'
@@ -60,13 +72,12 @@ PY
 ## Check 2 — data/pipeline: manifest validity and label sanity
 
 **Context.**
-> The agent claimed the shipped manifest is 1,500 rows per class (3,000 total), that
-> `check_manifest` returns `errors=[]` and `warnings=[]`, that no two crops overlap, that all
-> 3,000 rows come from distinct pool images, and that `angle` is 0 everywhere. Two earlier claims
-> do not match that file: it had said 1,000 rows per class, and `AGENTS.md` constraint 1 said every
-> row must carry `human_ok=Y`, while the shipped tree has 2,000 rows that no person ever saw. The
-> agent called that a later decision and put a dated amendment under constraint 1 with its measured
-> price: 0.574 on the rule-selected arm against 0.898 on the human arm, 0.643 pooled.
+
+> The agent reported 1,500 per class, `errors=[]`, no overlaps or duplicate rows, 3,000 distinct
+> pool images, and angle 0. It also corrected two earlier statements that did not match the
+> delivery: the 1,000 per class figure, and the `AGENTS.md` rule that every row needs
+> `human_ok=Y`, while the shipped manifest has 2,000 rows nobody looked at. The cost of that
+> amendment is 0.574, 0.898 and 0.643.
 
 **Check (run this yourself).**
 
@@ -80,7 +91,8 @@ print("errors:", r["errors"]); print("warnings:", r["warnings"]); print("stats:"
 PY
 ```
 
-> 然後自己抽 50 列在 128×128 下看標籤（label flip 對 `check_manifest` 是隱形的）。
+> Then draw 50 rows myself and look at the labels at 128×128 — a label flip is invisible to
+> `check_manifest`.
 
 **Outcome.**
 > `check_manifest` returned no errors and no warnings. It reports 3,000 valid rows,
@@ -91,25 +103,24 @@ PY
 > at all of them. Nine cells were bad: 02 bad print, 04 toy/statue, 07 drawing,
 > 18 unknown animal, 33 product, 34 print, 42 not upright, 47 drawing, 49 not upright.
 > That is 9 of 50 in this sample. `check_manifest` cannot see any of these, which is why I
-> did the visual pass. The 200-cell audit is a different draw, so I am not treating 18% as
-> a manifest-wide rate. I changed nothing in `AGENTS.md` or the tests.
+> did the visual pass. I changed nothing in `AGENTS.md` or the tests.
 
 ---
 
 ## Check 3 — model: determinism and batch-composition independence
 
 **Context.**
-> The agent said `submission/generate.py` loads the graded checkpoint (md5 `1e5c9b87`, 5,145,731
-> parameters) and samples with DDIM at 50 steps, eta 0, and guidance 2.5 against the other class,
-> and that the UNet uses GroupNorm on purpose: BatchNorm would let one sample depend on the others
-> in its batch, which the evaluator forbids. It claimed three things — the same label tensor at the
-> same seed is bit-identical on a second call, a different seed gives a different image, and one
-> row of a mixed batch equals the same row generated alone (its own 4-row comparison printed
-> `True`). It also reported the official batch check at 0.96 single-class against 0.87 mixed, a
-> 0.09 gap under the 0.20 limit.
+
+> The agent said `submission/generate.py` loads one model with 5,145,731 parameters, samples with
+> 50 DDIM steps at η=0 and guidance 2.5, and uses GroupNorm because BatchNorm would let one
+> sample depend on the others in the batch. It claimed three things: same seed gives the same
+> image, a different seed gives a different image, and row 0 of a mixed batch equals the same
+> row generated on its own. The last one was only tested with two 4-row batches, where it came
+> out True. It also quoted the evaluator's 0.96 single class against 0.87 mixed, a 0.09 gap
+> under the 0.20 limit.
 
 **Check (run this yourself).**
-> 這一個現在就能跑（`submission/weights.pt` 就是交付權重，md5 `1e5c9b87…`）。
+> Runs as shipped: `submission/weights.pt` is the graded checkpoint, md5 `1e5c9b87…`.
 
 ```bash
 python - <<'PY'
@@ -148,15 +159,13 @@ PY
 ## Check 4 — tooling: does the scan output still overwrite itself?
 
 **Context.**
-> The agent said `scan_posttrain.py` used to write `results/scan/<variant>_n<N>.json`, so two
-> checkpoints screened under the same variant name landed on the same file and the second run
-> silently replaced the first, which left a number in the report pointing at a file that had been
-> overwritten. It said the fix names each output `<variant>__<ckpt>_n<N>.json` and refuses to write
-> when that file already exists unless `--force` is passed, and that the fix held for the two E2
-> checkpoints that share a variant name.
+
+> The agent told me `scan_posttrain.py` used to write `results/scan/<variant>_n<N>.json`.
+> Two checkpoints scanned under the same variant name would land in the same file, and the
+> second run would quietly replace the first, leaving the report pointing at overwritten
+> numbers. It said the filenames now carry a checkpoint tag and refuse to overwrite.
 
 **Check (run this yourself).**
-> 前置：Phase 4 第一次掃描之後才有 `results/scan/` 的檔案。
 
 ```bash
 # 1. 檔名是否帶 checkpoint 標籤（應為 <variant>__<ckpt>_n<N>.json）

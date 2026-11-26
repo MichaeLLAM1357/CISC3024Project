@@ -17,3 +17,7 @@ audit/audit.csv                        -text
 audit_legacy_1000row/audit.csv         -text
 results/mixed_v1/consistency_17.csv    -text
 results/mixed_v1/spotcheck_machine.csv -text
+
+# The scan JSONs are what evaluate.py wrote, CRLF included: results/scan/README.md claims
+# both of its kinds of file are byte-identical to the script output.
+results/scan/**/*.json                 -text
