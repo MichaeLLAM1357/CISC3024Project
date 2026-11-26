@@ -2,8 +2,8 @@
 
     python pipeline/probe_phase0.py \
         --scan results/scan/yolo_detections.jsonl \
-        --data-root D:/CISC3024/PROJECT/data \
-        --cache-dir D:/CISC3024/PROJECT/results/manifest_v1 \
+        --data-root data \
+        --cache-dir results/manifest_v1 \
         --out results/probe
 
 What it draws (phase-0 probe):
@@ -220,8 +220,8 @@ def draw_sheet(cells: list[dict], title: str, path: Path, pool: Pool) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--scan", default="results/scan/yolo_detections.jsonl")
-    ap.add_argument("--data-root", default="D:/CISC3024/PROJECT/data")
-    ap.add_argument("--cache-dir", default="D:/CISC3024/PROJECT/results/manifest_v1",
+    ap.add_argument("--data-root", default=os.environ.get("CATDOG_DATA", str(ROOT / "data")))
+    ap.add_argument("--cache-dir", default=str(ROOT / "results" / "manifest_v1"),
                     help="stage-1/stage-3 cache of the pool (read-only; nothing is written)")
     ap.add_argument("--out", default="results/probe")
     ap.add_argument("--geom-sample", type=int, default=900,

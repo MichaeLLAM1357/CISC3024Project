@@ -1,7 +1,8 @@
+import os
 """Measure orientation signals for the Phase 0 'not upright' errors -- BEFORE touching the pipeline.
 
     python pipeline/pose_check.py --index results/probe/probe_index_HUMAN.csv \
-        --data-root D:/CISC3024/PROJECT/data --yolo D:/CISC3024/PROJECT/yolo11x.pt
+        --data-root data --yolo $CATDOG_YOLO
 
 The Phase 0 sheet said 14 of 100 kept crops are `not upright`, and no geometric check can see
 pose (the tflite face localizer returns 4 numbers, no landmarks). This script asks a narrower
@@ -217,8 +218,8 @@ def sweep(values, flags, grid):
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--index", default="results/probe/probe_index_HUMAN.csv")
-    ap.add_argument("--data-root", default="D:/CISC3024/PROJECT/data")
-    ap.add_argument("--yolo", default="D:/CISC3024/PROJECT/yolo11x.pt")
+    ap.add_argument("--data-root", default=os.environ.get("CATDOG_DATA", str(ROOT / "data")))
+    ap.add_argument("--yolo", default=os.environ.get("CATDOG_YOLO", str(ROOT / "yolo11x.pt")))
     ap.add_argument("--clip-model", default="ViT-L-14")
     ap.add_argument("--clip-pretrained", default="openai")
     ap.add_argument("--steps", type=int, default=8, help="rotations around the circle")

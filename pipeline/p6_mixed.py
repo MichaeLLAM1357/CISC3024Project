@@ -23,6 +23,8 @@ the script refuses to write if either class is short.
 
 from __future__ import annotations
 
+import os
+
 import argparse
 import csv
 import glob
@@ -59,7 +61,7 @@ def main() -> None:
     ap.add_argument("--out", default="results/mixed_v1/manifest_mixed.csv")
     ap.add_argument("--per-class-human", type=int, default=500)
     ap.add_argument("--per-class-auto", type=int, default=1000)
-    ap.add_argument("--data-root", default="D:/CISC3024/PROJECT/data")
+    ap.add_argument("--data-root", default=os.environ.get("CATDOG_DATA", str(ROOT / "data")))
     ap.add_argument("--no-check", action="store_true")
     args = ap.parse_args()
 

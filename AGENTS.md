@@ -293,7 +293,7 @@ python <kit>/evaluate.py --submission submission --data-root data --n-per-class 
   §7 / §10 require that exact artefact).
 - **`data/` is a read-only pool in the redo workspace.** `PROJECT3` carries the scan cache
   (`results/scan/yolo_detections.jsonl`, 76,250 rows) but not the images; every command that needs
-  pixels must point `--data-root` / `CATDOG_DATA` at `D:/CISC3024/PROJECT/data`. A "pool not found"
+  pixels must point `--data-root` / `CATDOG_DATA` at the pool (default `data/` inside the checkout). A "pool not found"
   warning from `evaluate.py` silently turns `memorization_rate` into `null` instead of failing.
 - **`--merge` reused its own output as the input draft.** `review_sheet.py` took the queue's tercile
   cuts and its "already shown" set from `--manifest`, which is also where `--merge` writes. The first

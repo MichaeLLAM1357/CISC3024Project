@@ -46,6 +46,8 @@ re-evaluated without --force, so re-running a stage cannot silently replace a nu
 
 from __future__ import annotations
 
+import os
+
 import argparse
 import csv
 import hashlib
@@ -231,7 +233,7 @@ def evaluator_script() -> Path:
     same file -- unmodified, hash-checked at the start of the run -- with `--submission` pointing
     at the arm directories here. Nothing is copied and nothing under either `starter_kit/` changes.
     """
-    graded = Path("D:/CISC3024/PROJECT/starter_kit/evaluate.py")
+    graded = Path(os.environ.get("CATDOG_KIT", ROOT / "starter_kit")) / "evaluate.py"
     local = ROOT / "starter_kit" / "evaluate.py"
     script = graded if (graded.exists()
                         and (graded.parent / "catdog_eval" / "classifier.pt").exists()) else local

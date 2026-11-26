@@ -1,7 +1,8 @@
+import os
 """Which of the Phase 0 leak classes is actually detectable with the tools on hand?
 
     python pipeline/leak_check.py --index results/probe/probe_index_HUMAN.csv \
-        --data-root D:/CISC3024/PROJECT/data --yolo D:/CISC3024/PROJECT/yolo11x.pt
+        --data-root data --yolo $CATDOG_YOLO
 
 `pose_check.py` showed that orientation is invisible to EXIF, YOLO rotation and CLIP rotation.
 This script measures the three leak classes that *do* have a cheap signal, on the same 100
@@ -90,9 +91,9 @@ def sweep(pos_vals, neg_vals, pos_ids, neg_ids, all_vals, all_flags, grid, direc
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--index", default="results/probe/probe_index_HUMAN.csv")
-    ap.add_argument("--data-root", default="D:/CISC3024/PROJECT/data")
-    ap.add_argument("--yolo", default="D:/CISC3024/PROJECT/yolo11x.pt")
-    ap.add_argument("--cache-dir", default="D:/CISC3024/PROJECT/results/manifest_v1")
+    ap.add_argument("--data-root", default=os.environ.get("CATDOG_DATA", str(ROOT / "data")))
+    ap.add_argument("--yolo", default=os.environ.get("CATDOG_YOLO", str(ROOT / "yolo11x.pt")))
+    ap.add_argument("--cache-dir", default=str(ROOT / "results" / "manifest_v1"))
     ap.add_argument("--conf", type=float, default=0.02)
     ap.add_argument("--imgsz", type=int, default=640)
     ap.add_argument("--out", default="results/probe/leak_check.json")

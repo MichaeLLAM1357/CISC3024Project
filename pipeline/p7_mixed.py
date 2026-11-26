@@ -17,6 +17,8 @@ Stages: --stage smoke | train | eval | summary | all
 
 from __future__ import annotations
 
+import os
+
 import argparse
 import csv
 import hashlib
@@ -186,7 +188,7 @@ def smoke_report(arm: str) -> dict:
 
 
 def evaluator_script() -> Path:
-    graded = Path("D:/CISC3024/PROJECT/starter_kit/evaluate.py")
+    graded = Path(os.environ.get("CATDOG_KIT", ROOT / "starter_kit")) / "evaluate.py"
     local = ROOT / "starter_kit" / "evaluate.py"
     script = graded if (graded.exists()
                         and (graded.parent / "catdog_eval" / "classifier.pt").exists()) else local
@@ -278,7 +280,7 @@ def main() -> None:
                     default="smoke")
     ap.add_argument("--arms", nargs="*", default=None, choices=sorted(ARMS))
     ap.add_argument("--n-per-class", type=int, default=1000)
-    ap.add_argument("--data-root", default="D:/CISC3024/PROJECT/data")
+    ap.add_argument("--data-root", default=os.environ.get("CATDOG_DATA", str(ROOT / "data")))
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--sweep", nargs="*", type=float, default=None,
                     help="guidance weights to evaluate for --arms (sampler-only, no retraining); "

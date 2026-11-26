@@ -59,7 +59,7 @@ tests/                      11 tests: crop parity with the starter kit, determin
 starter_kit/                course evaluator and audit tool, unmodified, used for every number
 results/                    evaluator JSON per arm, label statistics, review sheets;
                             results/README.md says which JSON is the submission (13/15)
-PDF/REPORT.pdf              the report: a cover page, six pages of body, references and two appendices;
+PDF/UC325629_REPORT.pdf     the report: a cover page, six pages of body, references and two appendices;
                             the cover carries the link to this repository
 DATA_CARD.md                one page: pipeline counts, compliance with its interval, error kinds
 LIMITS.md, AGENTS.md,        the rules the agent worked under (every "LIMITS.md §n" in the code
@@ -80,8 +80,11 @@ docs/                       method, data, experiments
 ## Reproduce
 
 The data is not redistributable, so this repository contains no pool, no dev set and no images. Put
-the course pool at `data/student/` and the dev set at `data/dev/dev.npz`, or point `CATDOG_DATA` at
-another root.
+the course pool at `data/student/` and the dev set at `data/dev/dev.npz`, or set `CATDOG_DATA` to
+another root. Every script defaults to a path inside this checkout (never a machine-specific one);
+`CATDOG_KIT` can point at a course starter kit that still has `classifier.pt`, and `CATDOG_YOLO`
+at a YOLO11x weight if you re-run the curation probes. All three are optional and relative by
+default, so a fresh copy of this folder works on another computer without edits.
 
 ```bash
 pip install -r requirements.txt

@@ -27,6 +27,8 @@ injected component is, independent of any head.
 
 from __future__ import annotations
 
+import os
+
 import argparse
 import json
 import sys
@@ -47,7 +49,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--weights", default="results/ab/aux_head/weights.pt")
     ap.add_argument("--manifest", default="submission/manifest.csv")
-    ap.add_argument("--data-root", default="D:/CISC3024/PROJECT/data")
+    ap.add_argument("--data-root", default=os.environ.get("CATDOG_DATA", str(ROOT / "data")))
     ap.add_argument("--limit", type=int, default=512)
     ap.add_argument("--out", default="results/ab/probe_aux_head.json")
     ap.add_argument("--times", default="50,250,600,900")
