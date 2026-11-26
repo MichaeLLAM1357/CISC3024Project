@@ -1,0 +1,55 @@
+{
+  "human_manifest": {
+    "path": "results/mixed_v1/manifest_human_1000.csv",
+    "md5": "66f60cfbfaf7f33550e2cfac11bb7d82",
+    "rows": 1000
+  },
+  "candidates_all": {
+    "path": "results/manifest_v1/candidates_all.csv",
+    "rows": 4821,
+    "per_class": {
+      "0": 2105,
+      "1": 2716
+    }
+  },
+  "sheets": {
+    "shown_unique": 2500,
+    "looked_at": 2400,
+    "unopened_sheet_rows": 100
+  },
+  "auto_pool": {
+    "0": 1005,
+    "1": 1416
+  },
+  "auto_taken": {
+    "0": 1000,
+    "1": 1000
+  },
+  "headroom": {
+    "0": 5,
+    "1": 416
+  },
+  "manifest": {
+    "path": "results/mixed_v1/manifest_mixed.csv",
+    "md5": "a0022d84fefee0b6746bbd3c2dd07b13",
+    "rows": 3000,
+    "per_class": {
+      "0": 1500,
+      "1": 1500
+    },
+    "byte_size": 66241
+  },
+  "check_manifest": {
+    "rows": 3000,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "rows": 3000,
+      "valid_rows": 3000,
+      "cat": 1500,
+      "dog": 1500,
+      "distinct_pool_images": 3000,
+      "rotated": 0
+    }
+  }
+}

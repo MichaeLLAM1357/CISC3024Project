@@ -1,0 +1,83 @@
+{
+  "submission": "D:\\CISC3024\\PROEJCT4\\results\\ab\\mixed20k_sub",
+  "protocol": {
+    "n_per_class": 1000,
+    "seed": 0,
+    "batch_size": 500,
+    "device": "cuda",
+    "grading": false
+  },
+  "checks": {
+    "deterministic": true,
+    "seed_sensitive": true,
+    "mixed_batch_accuracy": 0.8999999761581421,
+    "single_class_batch_accuracy": 0.9300000071525574
+  },
+  "training_data": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "rows": 3000,
+      "valid_rows": 3000,
+      "cat": 1500,
+      "dog": 1500,
+      "distinct_pool_images": 3000,
+      "rotated": 0
+    }
+  },
+  "metrics": {
+    "num_samples": 2000,
+    "reference": "D:\\CISC3024\\PROJECT\\data\\dev\\dev.npz",
+    "accuracy": 0.8374999761581421,
+    "per_class_accuracy": {
+      "cat": 0.8090000152587891,
+      "dog": 0.8659999966621399
+    },
+    "fid": 98.77175199631768,
+    "kid": 0.03004407791403615,
+    "kid_std": 0.0012582129410079912,
+    "precision": 0.41814160346984863,
+    "recall": 0.48119470477104187,
+    "memorization_rate": 0.0,
+    "nn_distance_median": 10.892541885375977,
+    "nn_ratio_median": 0.9789790511131287,
+    "training_images_deduplicated": 5987
+  },
+  "resources": {
+    "num_parameters": 5145731,
+    "submission_mb": 19.742737770080566,
+    "seconds_per_1000": 58.697828649994335
+  },
+  "limits": {
+    "max_parameters": 20000000,
+    "max_submission_mb": 100.0,
+    "max_memorization_rate": 0.05
+  },
+  "violations": [],
+  "warnings": [],
+  "marks": {
+    "per_metric": {
+      "accuracy": {
+        "tier": "Good",
+        "marks": 4
+      },
+      "fid": {
+        "tier": "Marginal",
+        "marks": 2
+      },
+      "recall": {
+        "tier": "Excellent",
+        "marks": 5
+      }
+    },
+    "total": 11,
+    "max": 15,
+    "valid": true
+  },
+  "environment": {
+    "torch": "2.6.0+cu124",
+    "python": "3.12.10",
+    "classifier_sha256": "9f66f425bed44b5e515045e5df002e61ca7f68eccfc3204a88ff234eae576afa",
+    "reference_sha256": "3f592dcb3738a00eff9623ec3b4581007b2e8289f5bae1b64e19ef0dd75c7402"
+  }
+}

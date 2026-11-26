@@ -1,0 +1,148 @@
+{
+  "arms": [
+    {
+      "arm": "admitted_e20k",
+      "what": "1,000 rows, 500/class human",
+      "rows": 1000,
+      "steps": 20000,
+      "epochs": 1280,
+      "metrics": {
+        "num_samples": 2000,
+        "reference": "D:\\CISC3024\\PROJECT\\data\\dev\\dev.npz",
+        "accuracy": 0.8399999737739563,
+        "per_class_accuracy": {
+          "cat": 0.7760000228881836,
+          "dog": 0.9039999842643738
+        },
+        "fid": 92.54970853329564,
+        "kid": 0.033095874013582584,
+        "kid_std": 0.0014900938357457478,
+        "precision": 0.45796459913253784,
+        "recall": 0.4646017551422119,
+        "memorization_rate": 0.0,
+        "nn_distance_median": 11.176897048950195,
+        "nn_ratio_median": 0.9766660928726196,
+        "training_images_deduplicated": 1996
+      },
+      "marks": {
+        "per_metric": {
+          "accuracy": {
+            "tier": "Good",
+            "marks": 4
+          },
+          "fid": {
+            "tier": "Marginal",
+            "marks": 2
+          },
+          "recall": {
+            "tier": "Excellent",
+            "marks": 5
+          }
+        },
+        "total": 11,
+        "max": 15,
+        "valid": true
+      },
+      "violations": [],
+      "nn_ratio_median": 0.9766660928726196,
+      "training_images_deduplicated": 1996,
+      "source": "eval_admitted_e20k_n1000.json"
+    },
+    {
+      "arm": "mixed20k",
+      "what": "3,000 rows, 1,500/class",
+      "rows": 3000,
+      "steps": 20000,
+      "epochs": 426,
+      "metrics": {
+        "num_samples": 2000,
+        "reference": "D:\\CISC3024\\PROJECT\\data\\dev\\dev.npz",
+        "accuracy": 0.8374999761581421,
+        "per_class_accuracy": {
+          "cat": 0.8090000152587891,
+          "dog": 0.8659999966621399
+        },
+        "fid": 98.77175199631768,
+        "kid": 0.03004407791403615,
+        "kid_std": 0.0012582129410079912,
+        "precision": 0.41814160346984863,
+        "recall": 0.48119470477104187,
+        "memorization_rate": 0.0,
+        "nn_distance_median": 10.892541885375977,
+        "nn_ratio_median": 0.9789790511131287,
+        "training_images_deduplicated": 5987
+      },
+      "marks": {
+        "per_metric": {
+          "accuracy": {
+            "tier": "Good",
+            "marks": 4
+          },
+          "fid": {
+            "tier": "Marginal",
+            "marks": 2
+          },
+          "recall": {
+            "tier": "Excellent",
+            "marks": 5
+          }
+        },
+        "total": 11,
+        "max": 15,
+        "valid": true
+      },
+      "violations": [],
+      "nn_ratio_median": 0.9789790511131287,
+      "training_images_deduplicated": 5987,
+      "source": "eval_mixed20k_n1000.json"
+    },
+    {
+      "arm": "mixed60k",
+      "what": "3,000 rows, 1,500/class",
+      "rows": 3000,
+      "steps": 60000,
+      "epochs": 1280,
+      "metrics": {
+        "num_samples": 2000,
+        "reference": "D:\\CISC3024\\PROJECT\\data\\dev\\dev.npz",
+        "accuracy": 0.906499981880188,
+        "per_class_accuracy": {
+          "cat": 0.8679999709129333,
+          "dog": 0.9449999928474426
+        },
+        "fid": 77.79804242340151,
+        "kid": 0.020866392013858082,
+        "kid_std": 0.001076881441186083,
+        "precision": 0.5243362784385681,
+        "recall": 0.5044247508049011,
+        "memorization_rate": 0.0,
+        "nn_distance_median": 10.466119766235352,
+        "nn_ratio_median": 0.9762802720069885,
+        "training_images_deduplicated": 5987
+      },
+      "marks": {
+        "per_metric": {
+          "accuracy": {
+            "tier": "Excellent",
+            "marks": 5
+          },
+          "fid": {
+            "tier": "Pass",
+            "marks": 3
+          },
+          "recall": {
+            "tier": "Excellent",
+            "marks": 5
+          }
+        },
+        "total": 13,
+        "max": 15,
+        "valid": true
+      },
+      "violations": [],
+      "nn_ratio_median": 0.9762802720069885,
+      "training_images_deduplicated": 5987,
+      "source": "eval_mixed60k_n1000.json"
+    }
+  ]
+}

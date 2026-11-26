@@ -1,0 +1,35 @@
+[
+  {
+    "arm": "mixed20k",
+    "code": "submission",
+    "what": "3,000 rows (500 human + 1,000 machine per class), 20k steps = 427 epochs",
+    "manifest": "results/mixed_v1/manifest_mixed.csv",
+    "dataset_rows": 3000,
+    "dataset_from_own_manifest": true,
+    "unet_params": 5145731,
+    "scheme": "ddpm",
+    "steps": 300,
+    "seconds_per_step": 0.1037,
+    "loss_first": 1.14931,
+    "loss_last": 0.08959,
+    "loss_last20_mean": 0.11537,
+    "snapshots": [
+      "snap_step000150.pt"
+    ],
+    "samples_png": true,
+    "determinism_maxdiff_same_seed": 1.2874603271484375e-05,
+    "maxdiff_different_seed": 0.8096984028816223,
+    "output_shape": [
+      4,
+      3,
+      32,
+      32
+    ],
+    "output_range": [
+      0.0,
+      0.9972766637802124
+    ],
+    "nan": false,
+    "smoke_ok": true
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "scan_records": 76250,
+  "candidates_before_trim": {
+    "0": 2105,
+    "1": 2716
+  },
+  "selected": {
+    "0": 1000,
+    "1": 1000
+  },
+  "reject_counts": {
+    "no_detection": 52456,
+    "multiple_detections": 5154,
+    "ratio": 4231,
+    "aspect": 700,
+    "head_too_small": 1058,
+    "border": 4347,
+    "flat": 50,
+    "blurry": 23,
+    "face_failed": 1,
+    "clip_style": 2713,
+    "ocr_text": 677,
+    "duplicate": 19
+  },
+  "args": {
+    "scan": "results/scan/yolo_detections.jsonl",
+    "data_root": "D:/CISC3024/PROJECT/data",
+    "out": "submission/manifest.csv",
+    "out_dir": "results/manifest_v1",
+    "debug_limit": 0,
+    "batch": 32,
+    "device": "cuda",
+    "min_style": 0.5,
+    "min_sharpness": 20.0,
+    "max_flat": 0.75,
+    "ocr_max_area": 0.005,
+    "ocr_min_chars": 3,
+    "ocr_workers": 12,
+    "ocr_max_style": 1.0,
+    "phash_distance": 4,
+    "keep_per_class": 1000,
+    "max_candidates": 1300,
+    "no_trim": false,
+    "skip_clip": false,
+    "skip_ocr": false,
+    "resume": true,
+    "stage1_only": false
+  },
+  "elapsed_seconds": 1675.1274205000082
+}

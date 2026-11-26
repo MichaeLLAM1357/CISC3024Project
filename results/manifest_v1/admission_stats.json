@@ -1,0 +1,193 @@
+{
+  "classes": {
+    "cat": {
+      "admission_rate": 0.4609,
+      "admitted_Y": 507,
+      "coverage": [
+        {
+          "last_mark_row": 100,
+          "marks": 51,
+          "rows": 100,
+          "sheet": "admission_cat_01.csv"
+        },
+        {
+          "last_mark_row": 99,
+          "marks": 45,
+          "rows": 100,
+          "sheet": "admission_cat_02.csv"
+        },
+        {
+          "last_mark_row": 95,
+          "marks": 41,
+          "rows": 100,
+          "sheet": "admission_cat_03.csv"
+        },
+        {
+          "last_mark_row": 100,
+          "marks": 41,
+          "rows": 100,
+          "sheet": "admission_cat_04.csv"
+        },
+        {
+          "last_mark_row": 100,
+          "marks": 45,
+          "rows": 100,
+          "sheet": "admission_cat_05.csv"
+        },
+        {
+          "last_mark_row": 99,
+          "marks": 57,
+          "rows": 100,
+          "sheet": "admission_cat_06.csv"
+        },
+        {
+          "last_mark_row": 98,
+          "marks": 41,
+          "rows": 100,
+          "sheet": "admission_cat_07.csv"
+        },
+        {
+          "last_mark_row": 97,
+          "marks": 54,
+          "rows": 100,
+          "sheet": "admission_cat_08.csv"
+        },
+        {
+          "last_mark_row": 97,
+          "marks": 52,
+          "rows": 100,
+          "sheet": "admission_cat_09.csv"
+        },
+        {
+          "last_mark_row": 100,
+          "marks": 41,
+          "rows": 100,
+          "sheet": "admission_cat_10.csv"
+        },
+        {
+          "last_mark_row": 92,
+          "marks": 39,
+          "rows": 100,
+          "sheet": "admission_cat_w2_01.csv"
+        }
+      ],
+      "est_rows_needed": 1,
+      "need_more": 0,
+      "reviewed_rows": 1100,
+      "sheets": 12,
+      "sheets_with_trailing_blank": [
+        "admission_cat_02.csv",
+        "admission_cat_03.csv",
+        "admission_cat_06.csv",
+        "admission_cat_07.csv",
+        "admission_cat_08.csv",
+        "admission_cat_09.csv",
+        "admission_cat_w2_01.csv"
+      ],
+      "target": 500
+    },
+    "dog": {
+      "admission_rate": 0.3854,
+      "admitted_Y": 501,
+      "coverage": [
+        {
+          "last_mark_row": 100,
+          "marks": 38,
+          "rows": 100,
+          "sheet": "admission_dog_01.csv"
+        },
+        {
+          "last_mark_row": 93,
+          "marks": 28,
+          "rows": 100,
+          "sheet": "admission_dog_02.csv"
+        },
+        {
+          "last_mark_row": 100,
+          "marks": 46,
+          "rows": 100,
+          "sheet": "admission_dog_03.csv"
+        },
+        {
+          "last_mark_row": 100,
+          "marks": 56,
+          "rows": 100,
+          "sheet": "admission_dog_04.csv"
+        },
+        {
+          "last_mark_row": 99,
+          "marks": 49,
+          "rows": 100,
+          "sheet": "admission_dog_05.csv"
+        },
+        {
+          "last_mark_row": 100,
+          "marks": 43,
+          "rows": 100,
+          "sheet": "admission_dog_06.csv"
+        },
+        {
+          "last_mark_row": 100,
+          "marks": 45,
+          "rows": 100,
+          "sheet": "admission_dog_07.csv"
+        },
+        {
+          "last_mark_row": 99,
+          "marks": 45,
+          "rows": 100,
+          "sheet": "admission_dog_08.csv"
+        },
+        {
+          "last_mark_row": 99,
+          "marks": 30,
+          "rows": 100,
+          "sheet": "admission_dog_09.csv"
+        },
+        {
+          "last_mark_row": 99,
+          "marks": 37,
+          "rows": 100,
+          "sheet": "admission_dog_10.csv"
+        },
+        {
+          "last_mark_row": 98,
+          "marks": 23,
+          "rows": 100,
+          "sheet": "admission_dog_w2_01.csv"
+        },
+        {
+          "last_mark_row": 97,
+          "marks": 32,
+          "rows": 100,
+          "sheet": "admission_dog_w2_02.csv"
+        },
+        {
+          "last_mark_row": 98,
+          "marks": 29,
+          "rows": 100,
+          "sheet": "admission_dog_w2_03.csv"
+        }
+      ],
+      "est_rows_needed": 1,
+      "need_more": 0,
+      "reviewed_rows": 1300,
+      "sheets": 13,
+      "sheets_with_trailing_blank": [
+        "admission_dog_02.csv",
+        "admission_dog_05.csv",
+        "admission_dog_08.csv",
+        "admission_dog_09.csv",
+        "admission_dog_10.csv",
+        "admission_dog_w2_01.csv",
+        "admission_dog_w2_02.csv",
+        "admission_dog_w2_03.csv"
+      ],
+      "target": 500
+    }
+  },
+  "per_class_target": 500,
+  "unmarked_sheets": [
+    "admission_cat_w2_02.csv"
+  ]
+}

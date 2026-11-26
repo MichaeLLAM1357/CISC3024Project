@@ -1,0 +1,49 @@
+code dir: D:\CISC3024\PROEJCT4\submission
+dataset: (3000, 3, 32, 32) cats=1500 dogs=1500
+unet params: 5.15M  cond=add null_token=False p_uncond=0.0 code_dir=submission
+trainable params: 5.15M
+step 100/300 loss=0.1488 lr=2.00e-04 101ms/step
+  snapshot -> snap_step000150.pt (20.6 MB)
+step 200/300 loss=0.1074 lr=2.00e-04 107ms/step
+step 300/300 loss=0.0896 lr=2.00e-04 102ms/step
+{
+  "model": "class-conditional DDPM (cosine schedule, eps-prediction, GroupNorm UNet)",
+  "manifest": "results/mixed_v1/manifest_mixed.csv",
+  "rows": 3000,
+  "steps": 300,
+  "epochs_run": 7,
+  "batch": 64,
+  "lr": 0.0002,
+  "ema_decay": 0.999,
+  "lr_schedule": "constant",
+  "warmup": 0,
+  "lr_floor": 0.01,
+  "cond": "add",
+  "null_token": false,
+  "p_uncond": 0.0,
+  "loss_weight": "none",
+  "snr_gamma": 0.0,
+  "code_dir": "submission",
+  "scheme": "ddpm",
+  "aux_weight": 0.0,
+  "aux_tmax": 0.25,
+  "aux_src": "mid",
+  "ema_extra_files": [],
+  "base": 64,
+  "emb": 128,
+  "timesteps": 1000,
+  "ddim_steps": 50,
+  "seed": 0,
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 2060",
+  "torch": "2.6.0+cu124",
+  "python": "3.12.10",
+  "unet_params": 5145731,
+  "train_seconds": 31.1,
+  "seconds_per_step": 0.1037,
+  "loss_first": 1.1493070125579834,
+  "loss_last": 0.08958553522825241,
+  "weights": "D:\\CISC3024\\PROEJCT4\\results\\ab\\mixed20k_smoke\\weights.pt",
+  "weights_bytes": 20615706
+}
+saved D:\CISC3024\PROEJCT4\results\ab\mixed20k_smoke\weights.pt (20.6 MB), log D:\CISC3024\PROEJCT4\results\ab\mixed20k_smoke

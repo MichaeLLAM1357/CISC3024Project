@@ -1,0 +1,29 @@
+# the pool and the dev set never live in the repository (course data, not redistributable)
+data/
+student/
+*.zip
+
+# the deck ships as .pptx; its 3.7 MB PDF export is not shipped
+Blue And White*.pdf
+
+# images
+*.png
+*.jpg
+
+# weights: only the read-only reference copy
+*.pt
+!submission/weights.pt
+classifier.pt
+dev.inception.pt
+
+# caches
+__pycache__/
+.pytest_cache/
+.workbuddy/
+.workbuddy-ai/
+
+# scratch submission dirs built by pipeline/p4_shot1.py and scan_posttrain.py: code copies plus a
+# duplicate manifest, all reproducible from the arm's config.json / the run command. The evidence
+# that matters (rows per arm, metrics, flags) is in results/ab/*.json, not in these copies.
+results/ab/*_sub/
+results/scan/sub_*/

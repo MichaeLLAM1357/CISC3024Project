@@ -1,2 +1,19 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Byte stability for the files whose md5 is quoted in the report.
+# core.autocrlf=true would rewrite these to CRLF on checkout and silently change the hash.
+*.csv   text eol=lf
+*.jsonl text eol=lf
+*.json  text eol=lf
+*.py    text eol=lf
+*.md    text eol=lf
+*.png   binary
+*.pt    binary
+*.zip   binary
+*.pptx  binary
+
+# Evidence CSVs that an editor saved with CRLF: store the bytes exactly as they are, or the
+# checkout would rewrite the newlines and the md5 quoted in DATA_CARD.md / LABEL_AUDIT.md
+# (audit.csv bafda409, consistency_17.csv 6d22f32a) would no longer match. Later rules win.
+audit/audit.csv                        -text
+audit_legacy_1000row/audit.csv         -text
+results/mixed_v1/consistency_17.csv    -text
+results/mixed_v1/spotcheck_machine.csv -text

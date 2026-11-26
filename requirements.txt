@@ -1,0 +1,16 @@
+# Environment actually used for this project (Windows 11, Python 3.12.10, RTX 2060 6 GB).
+# Core: training, submission and evaluation.
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
+numpy==2.5.4
+pillow==13.0.0
+pytorch-fid==0.3.0
+pytest==9.2.0
+
+# Data curation only (never imported by submission/): scan_pool.py and build_manifest.py.
+ultralytics==8.4.216          # YOLO11x detector, pretrained, curation only
+open_clip_torch==4.2.2        # ViT-L-14 photo-vs-art/print exclusion, curation only
+ai-edge-litert==2.4.0         # runs the cat/dog face localizer .tflite models
+rapidocr-onnxruntime==1.4.4   # OCR text / watermark exclusion, curation only
+ImageHash==4.3.2              # perceptual-hash deduplication, curation only
+opencv-python==5.1.0.95       # sharpness / edge / saturation heuristics, curation only

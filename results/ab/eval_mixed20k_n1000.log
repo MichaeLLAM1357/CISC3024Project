@@ -1,0 +1,21 @@
+
+================ Evaluation summary ================
+samples        2000   (reference D:\CISC3024\PROJECT\data\dev\dev.npz)
+accuracy       0.8375   (cat 0.8090, dog 0.8660)
+FID            98.77
+KID            30.04 x 1e-3   (std 1.26)
+precision      0.4181
+recall         0.4812
+memorization   0.00%   (median NN distance 10.89, median NN ratio 0.98, against 5987 training images and their mirror images, near-duplicates removed)
+parameters     5,145,731   (limit 20,000,000)
+size           19.74 MB   (limit 100 MB)
+speed          58.70 s / 1000 images on cuda
+checks         deterministic=True  seed_sensitive=True  single/mixed batch accuracy=0.93/0.90
+manifest       3000/3000 valid rows: 1500 cats, 1500 dogs from 3000 pool images (0 rotated)
+accuracy       Good       4 marks
+fid            Marginal   2 marks
+recall         Excellent  5 marks
+marks          11 / 15
+====================================================
+results -> D:\CISC3024\PROEJCT4\results\ab\eval_mixed20k_n1000.json
+grid    -> D:\CISC3024\PROEJCT4\results\ab\eval_mixed20k_n1000.png

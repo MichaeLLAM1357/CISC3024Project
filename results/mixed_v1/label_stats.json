@@ -1,0 +1,199 @@
+{
+  "audit_mixed": {
+    "n": 200,
+    "good": 134,
+    "bad": 66,
+    "good_rate": 0.67,
+    "wilson95": [
+      0.6022,
+      0.7314
+    ]
+  },
+  "audit_mixed_by_arm": {
+    "human": {
+      "n": 59,
+      "good": 53,
+      "bad": 6,
+      "good_rate": 0.8983,
+      "wilson95": [
+        0.7954,
+        0.9526
+      ]
+    },
+    "machine": {
+      "n": 141,
+      "good": 81,
+      "bad": 60,
+      "good_rate": 0.5745,
+      "wilson95": [
+        0.4919,
+        0.653
+      ]
+    }
+  },
+  "audit_mixed_by_class": {
+    "0": {
+      "n": 107,
+      "good": 73,
+      "bad": 34,
+      "good_rate": 0.6822,
+      "wilson95": [
+        0.589,
+        0.7628
+      ]
+    },
+    "1": {
+      "n": 93,
+      "good": 61,
+      "bad": 32,
+      "good_rate": 0.6559,
+      "wilson95": [
+        0.5549,
+        0.7445
+      ]
+    }
+  },
+  "audit_legacy_1000row": {
+    "n": 200,
+    "good": 148,
+    "bad": 52,
+    "good_rate": 0.74,
+    "wilson95": [
+      0.6751,
+      0.7959
+    ]
+  },
+  "spotcheck_machine": {
+    "n": 100,
+    "good": 74,
+    "bad": 26,
+    "good_rate": 0.74,
+    "wilson95": [
+      0.6463,
+      0.816
+    ]
+  },
+  "reason_counts_new": {
+    "product/print": 22,
+    "cartoon/drawing": 11,
+    "not upright": 7,
+    "head too small": 6,
+    "humanhead": 6,
+    "text/watermark": 6,
+    "statue/toy": 3,
+    "blurry/upscaled": 2,
+    "two_head": 2,
+    "wrong_animal": 1
+  },
+  "reason_counts_machine_arm": {
+    "product/print": 21,
+    "cartoon/drawing": 11,
+    "humanhead": 6,
+    "not upright": 6,
+    "text/watermark": 5,
+    "head too small": 4,
+    "blurry/upscaled": 2,
+    "statue/toy": 2,
+    "two_head": 2,
+    "wrong_animal": 1
+  },
+  "bad_rows_without_reason": [],
+  "spotcheck_reason_filled": 26,
+  "spotcheck_machine_by_class": {
+    "0": {
+      "n": 50,
+      "good": 34,
+      "bad": 16,
+      "good_rate": 0.68,
+      "wilson95": [
+        0.5419,
+        0.7924
+      ]
+    },
+    "1": {
+      "n": 50,
+      "good": 40,
+      "bad": 10,
+      "good_rate": 0.8,
+      "wilson95": [
+        0.6696,
+        0.8876
+      ]
+    }
+  },
+  "spotcheck_reason_counts": {
+    "product/print": 8,
+    "humanhead": 8,
+    "statue/toy": 3,
+    "cartoon/drawing": 2,
+    "text/watermark": 1,
+    "earcut": 1,
+    "not upright": 1,
+    "unknow": 1,
+    "wrong_animal": 1
+  },
+  "spotcheck_bad_without_reason": [],
+  "spotcheck_blank_verdict": [],
+  "repeat_frame": {
+    "n": 59,
+    "agree": 42,
+    "agreement": 0.7119,
+    "cohen_kappa": 0.1957,
+    "flips": {
+      "bad_to_good": 15,
+      "good_to_bad": 2
+    },
+    "pass1_good_rate": 0.678,
+    "pass2_good_rate": 0.8983
+  },
+  "adjudication": {
+    "cells": 17,
+    "png": "consistency_17.png",
+    "csv": "consistency_17.csv",
+    "verdicts_printed": false,
+    "filled": true,
+    "n": 17,
+    "pass3_good": 14,
+    "sides_with_pass1": 1,
+    "sides_with_pass2": 16,
+    "reason_filled": 3,
+    "pass3_reasons": {
+      "text/watermark": 1,
+      "statue/toy": 1,
+      "head too small": 1
+    }
+  },
+  "composition": {
+    "manifest_rows": 3000,
+    "human_looked_at": 1000,
+    "machine_only": 2000,
+    "human_share": 0.3333,
+    "machine_share": 0.6667
+  },
+  "machine_frame_two_draws": {
+    "audit_machine": {
+      "n": 141,
+      "good": 81,
+      "good_rate": 0.5745
+    },
+    "spotcheck_machine": {
+      "n": 100,
+      "good": 74,
+      "good_rate": 0.74
+    },
+    "pooled": {
+      "n": 241,
+      "good": 155,
+      "good_rate": 0.6432,
+      "wilson95": [
+        0.5809,
+        0.701
+      ]
+    },
+    "difference": 0.1655,
+    "se_difference": 0.0605,
+    "z": 2.74,
+    "shared_pool_ids": 6,
+    "shared_agreement": 6
+  }
+}
